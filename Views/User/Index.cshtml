@@ -1,0 +1,71 @@
+﻿@model IEnumerable<skybeat.Models.UserSetting>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id_user)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Verifypassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.add_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_role)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_user)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Verifypassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.add_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_role)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

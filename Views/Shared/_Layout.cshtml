@@ -56,6 +56,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Users" asp-action="List">Users</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="dropdown ml-lg-auto mr-lg-3 d-none d-lg-block">
@@ -64,22 +67,21 @@
                         </i>
                     </button>
                     <div class="dropdown-menu bg-dark-2 dropdown-menu-right text-light p-3" aria-labelledby="uzivatel" style="width: 300px">
-
-                        <form action="/prihlaseni" method="post">
+                        <form>
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control rounded" name="email" id="email" required="">
                             </div>
                             <div class="form-group">
-                                <label for="heslo">Heslo</label>
-                                <input type="password" class="form-control rounded" name="heslo" id="heslo" required="">
+                                <label for="passwd">Password</label>
+                                <input type="password" class="form-control rounded" name="passwd" id="passwd" required="">
                             </div>
                             <div>
                                 <input type="submit" value="Přihlásit se" class="btn btn-light rounded">
                             </div>
                         </form>
                         <div class="dropdown-divider"></div>
-                        <a href="/registrace">Zaregistrovat se</a>
+                        <a asp-area="" asp-controller="Home" asp-action="Register">Register</a>
                     </div>
                 </div>
             </div>

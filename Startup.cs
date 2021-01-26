@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using skybeat.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace skybeat
 {
@@ -24,6 +26,7 @@ namespace skybeat
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.Add(new ServiceDescriptor(typeof(SkybeatContext), new SkybeatContext(Configuration.GetConnectionString("DefaultConnection"))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +53,7 @@ namespace skybeat
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=User}/{action=Index}/{id?}");
             });
         }
     }
