@@ -3,31 +3,89 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - skybeat</title>
+    <title>Skybeat @ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #643875;">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">skybeat</a>
+                <a class="navbar-brand d-none d-lg-block">
+                    <img src="~/Images/logo.png" height="100" width="100">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon text-light"></span>
                 </button>
+                <a class="navbar-brand d-block d-lg-none mx-auto">
+                    <img src="~/Images/logo.png" alt="logo" height="80">
+                </a>
+                <div class="dropdown ml-lg-auto mr-lg-3 d-block d-lg-none">
+                    <button class="btn dropdown-toggle text-light" type="button" id="uzivatel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user fa-lg text-secondary text-light">
+                        </i>
+                    </button>
+                    <div class="dropdown-menu bg-dark-2 dropdown-menu-right text-light p-3" aria-labelledby="" style="width: 300px">
+                        <form >
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control rounded" name="email" id="email" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwd">Password</label>
+                                <input type="password" class="form-control rounded" name="passwd" id="passwd" required="">
+                            </div>
+                            <div>
+                                <input type="submit" value="Přihlásit se" class="btn btn-light rounded">
+                            </div>
+                        </form>
+                        <div class="dropdown-divider"></div>
+                        <a asp-area="" asp-controller="Home" asp-action="Register">Register</a>
+                    </div>
+                </div>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Skybeat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>
+                <div class="dropdown ml-lg-auto mr-lg-3 d-none d-lg-block">
+                    <button class="btn dropdown-toggle text-light" type="button" id="uzivatel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user fa-lg text-secondary text-light">
+                        </i>
+                    </button>
+                    <div class="dropdown-menu bg-dark-2 dropdown-menu-right text-light p-3" aria-labelledby="uzivatel" style="width: 300px">
+
+                        <form action="/prihlaseni" method="post">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control rounded" name="email" id="email" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="heslo">Heslo</label>
+                                <input type="password" class="form-control rounded" name="heslo" id="heslo" required="">
+                            </div>
+                            <div>
+                                <input type="submit" value="Přihlásit se" class="btn btn-light rounded">
+                            </div>
+                        </form>
+                        <div class="dropdown-divider"></div>
+                        <a href="/registrace">Zaregistrovat se</a>
+                    </div>
+                </div>
             </div>
+            
         </nav>
+        
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -37,7 +95,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - skybeat - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - Skybeat - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
